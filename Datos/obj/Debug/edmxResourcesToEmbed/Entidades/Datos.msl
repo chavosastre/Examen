@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SistemaPruebaModelStoreContainer" CdmEntityContainer="SistemaPruebaEntities">
+    <EntitySetMapping Name="Escuela">
+      <EntityTypeMapping TypeName="SistemaPruebaModel.Escuela">
+        <MappingFragment StoreEntitySet="Escuela">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DIreccion" ColumnName="DIreccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materias">
+      <EntityTypeMapping TypeName="SistemaPruebaModel.Materias">
+        <MappingFragment StoreEntitySet="Materias">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesor">
+      <EntityTypeMapping TypeName="SistemaPruebaModel.Profesor">
+        <MappingFragment StoreEntitySet="Profesor">
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SistemaPruebaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupos">
+      <EntityTypeMapping TypeName="SistemaPruebaModel.Grupos">
+        <MappingFragment StoreEntitySet="Grupos">
+          <ScalarProperty Name="ClaveEscuela" ColumnName="ClaveEscuela" />
+          <ScalarProperty Name="ClaveMateria" ColumnName="ClaveMateria" />
+          <ScalarProperty Name="ClaveProfesor" ColumnName="ClaveProfesor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFinal" ColumnName="HoraFinal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

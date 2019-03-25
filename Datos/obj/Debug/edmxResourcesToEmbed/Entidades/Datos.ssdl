@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SistemaPruebaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Escuela">
+    <Key>
+      <PropertyRef Name="Clave" />
+    </Key>
+    <Property Name="Clave" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DIreccion" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SistemaPrueba.dbo.Grupos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="ClaveEscuela" />
+      <PropertyRef Name="ClaveMateria" />
+      <PropertyRef Name="ClaveProfesor" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="HoraInicio" />
+      <PropertyRef Name="HoraFinal" />
+    </Key>
+    <Property Name="ClaveEscuela" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ClaveMateria" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ClaveProfesor" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombre" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="HoraInicio" Type="tinyint" Nullable="false" />
+    <Property Name="HoraFinal" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materias">
+    <Key>
+      <PropertyRef Name="Clave" />
+    </Key>
+    <Property Name="Clave" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Profesor">
+    <Key>
+      <PropertyRef Name="Clave" />
+    </Key>
+    <Property Name="Clave" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Grupos_Escuela">
+    <End Role="Escuela" Type="Self.Escuela" Multiplicity="1" />
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Escuela">
+        <PropertyRef Name="Clave" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="ClaveEscuela" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupos_Materias">
+    <End Role="Materias" Type="Self.Materias" Multiplicity="1" />
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materias">
+        <PropertyRef Name="Clave" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="ClaveMateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupos_Profesor">
+    <End Role="Profesor" Type="Self.Profesor" Multiplicity="1" />
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profesor">
+        <PropertyRef Name="Clave" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="ClaveProfesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SistemaPruebaModelStoreContainer">
+    <EntitySet Name="Escuela" EntityType="Self.Escuela" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materias" EntityType="Self.Materias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Grupos].[ClaveEscuela] AS [ClaveEscuela], 
+[Grupos].[ClaveMateria] AS [ClaveMateria], 
+[Grupos].[ClaveProfesor] AS [ClaveProfesor], 
+[Grupos].[Nombre] AS [Nombre], 
+[Grupos].[HoraInicio] AS [HoraInicio], 
+[Grupos].[HoraFinal] AS [HoraFinal]
+FROM [dbo].[Grupos] AS [Grupos]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Grupos_Escuela" Association="Self.FK_Grupos_Escuela">
+      <End Role="Escuela" EntitySet="Escuela" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupos_Materias" Association="Self.FK_Grupos_Materias">
+      <End Role="Materias" EntitySet="Materias" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupos_Profesor" Association="Self.FK_Grupos_Profesor">
+      <End Role="Profesor" EntitySet="Profesor" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
