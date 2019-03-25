@@ -1,0 +1,15 @@
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\obj\Debug\Control.csprojAssemblyReference.cache
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\obj\Debug\Control.csproj.CoreCompileInputs.cache
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\Control.dll.config
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\Control.dll
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\Control.pdb
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\Datos.dll
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\EntityFramework.dll
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\Datos.pdb
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\Datos.dll.config
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\EntityFramework.xml
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\obj\Debug\Control.csproj.CopyComplete
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\obj\Debug\Control.dll
+C:\Users\Carlos Alberto\source\repos\ExamenAnalisis\Control\obj\Debug\Control.pdb
